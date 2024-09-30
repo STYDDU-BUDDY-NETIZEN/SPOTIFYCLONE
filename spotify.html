@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>'Spotify - Web Player: Music for everyone'</title>
+    <link rel="stylesheet" href="spotify.css" />
+    <link rel="stylesheet" href="utility.css" />
+    <script src="spotify.js"></script>
+  </head>
+
+  <body>
+    <!-- <div class="title">
+        <img src="favicon.ico" alt="">
+    </div> -->
+    <!-- <img src="logo.svg" alt=""> -->
+    <div class="container flex bg-black">
+      <div class="left">
+        <div class="close">
+          <img width="30" class="invert" src="close.svg" alt="" />
+        </div>
+        <div class="home bg-black bg-grey rounded m-1 p-1">
+          <img width="110" class="invert" src="logo.svg" alt="" />
+          <ul>
+            <li><img class="invert" src="home.svg" alt="Home" />Home</li>
+            <li><img class="invert" src="search.svg" alt="Search" />Search</li>
+          </ul>
+        </div>
+        <div class="library bg-black bg-grey rounded m-1 p-1">
+          <div class="heading">
+            <img class="invert" src="playlist.svg" alt="" />
+            <h2>Your Library</h2>
+          </div>
+          <div class="songlist">
+            <ul></ul>
+          </div>
+          <div class="footer">
+            <div>
+              <a
+                href="https://www.spotify.com/pk-en/legal/"
+                id=""
+                data-encore-id="textLink"
+              >
+                <span data-encore-id="type">Legal</span>
+              </a>
+            </div>
+            <div>
+              <a
+                href="https://www.spotify.com/pk-en/safetyandprivacy/"
+                id=""
+                data-encore-id="textLink"
+              >
+                <span data-encore-id="type">Safety & Privacy Center</span>
+              </a>
+            </div>
+            <div>
+              <a
+                href="https://www.spotify.com/pk-en/legal/privacy-policy/"
+                id=""
+                data-encore-id="textLink"
+              >
+                <span data-encore-id="type">Privacy Policy</span>
+              </a>
+            </div>
+            <div>
+              <a
+                href="https://www.spotify.com/pk-en/legal/cookies-policy/"
+                id=""
+                data-encore-id="textLink"
+              >
+                <span data-encore-id="type">Cookies</span>
+              </a>
+            </div>
+            <div>
+              <a
+                href="https://www.spotify.com/pk-en/legal/privacy-policy/#s3"
+                id=""
+                data-encore-id="textLink"
+              >
+                <span data-encore-id="type">About Ads</span>
+              </a>
+            </div>
+            <div>
+              <a
+                href="https://www.spotify.com/pk-en/accessibility/"
+                id=""
+                data-encore-id="textLink"
+              >
+                <span data-encore-id="type">Accessibility</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right bg-grey rounded jdfdjk">
+        <div class="header">
+          <div class="nav">
+            <div class="hamburgerContainer">
+              <img
+                width="40"
+                class="invert hamburger"
+                src="hamburger .svg"
+                alt=""
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                color="#000000"
+                fill="none"
+              >
+                <path
+                  d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+            <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg> -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                color="#000000"
+                fill="none"
+              >
+                <path
+                  d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="buttons">
+            <button class="singupbtn">Sing Up</button>
+            <button class="loginbtn">Log In</button>
+          </div>
+        </div>
+
+        <div class="main">
+          <div class="artist">
+            <h1>Popular Artists</h1>
+            <div class="collection flex">
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/pritam.jpeg" alt="" />
+                  <h2>Pritam</h2>
+                  <p>Artist</p>
+                </div>
+              </div>
+
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/karan.jpeg" alt="" />
+                  <h2>Karan Aujla</h2>
+                  <p>Artist</p>
+                </div>
+              </div>
+
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/arijit.jpeg" alt="" />
+                  <h2>Arijit Singh</h2>
+                  <p>Artist</p>
+                </div>
+              </div>
+
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/atif.jpeg" alt="" />
+                  <h2>Atif Aslam</h2>
+                  <p>Artist</p>
+                </div>
+              </div>
+
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/shubh.jpeg" alt="" />
+                  <h2>Shubh</h2>
+                  <p>Artist</p>
+                </div>
+              </div>
+
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/diljit.jpeg" alt="" />
+                  <h2>Diljit Dosanjh</h2>
+                  <p>Artist</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="spotifyplaylist">
+            <h1>Popular Playlists</h1>
+            <div class="cardcontainer">
+              <div data-folder="ncs" class="card">
+                <div class="play">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="44"
+                    height="64"
+                  >
+                    <!-- Circular background -->
+                    <circle cx="12" cy="12" r="12" fill="#1DB954" />
+                    <!-- Green background similar to Spotify -->
+
+                    <!-- SVG icon -->
+                    <path
+                      d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                      fill="black"
+                      stroke="none"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <img src="card iamges/bright.jpg" alt="" />
+                </div>
+                <h2>Bright Songs</h2>
+                <p>Artist</p>
+              </div>
+              <div data-folder="cs" class="card">
+                <div class="play">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="44"
+                    height="64"
+                  >
+                    <!-- Circular background -->
+                    <circle cx="12" cy="12" r="12" fill="#1DB954" />
+                    <!-- Green background similar to Spotify -->
+
+                    <!-- SVG icon -->
+                    <path
+                      d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                      fill="black"
+                      stroke="none"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <img src="card iamges/chill.jpg" alt="" />
+                </div>
+                <h2>Just Chill</h2>
+                <p>Artist</p>
+              </div>
+              <div data-folder="dark" class="card">
+                <div class="play">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="44"
+                    height="64"
+                  >
+                    <!-- Circular background -->
+                    <circle cx="12" cy="12" r="12" fill="#1DB954" />
+                    <!-- Green background similar to Spotify -->
+
+                    <!-- SVG icon -->
+                    <path
+                      d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                      fill="black"
+                      stroke="none"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <img src="card iamges/dark.jpg" alt="" />
+                </div>
+                <h2>Dark Mood</h2>
+                <p>Artist</p>
+              </div>
+              <div data-folder="angry" class="card">
+                <div class="play">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="44"
+                    height="64"
+                  >
+                    <!-- Circular background -->
+                    <circle cx="12" cy="12" r="12" fill="#1DB954" />
+                    <!-- Green background similar to Spotify -->
+
+                    <!-- SVG icon -->
+                    <path
+                      d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                      fill="black"
+                      stroke="none"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <img src="card iamges/angry.jpg" alt="" />
+                </div>
+                <h2>Angry Mood</h2>
+                <p>Artist</p>
+              </div>
+              <div data-folder="uplifting" class="card">
+                <div class="play">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="44"
+                    height="64"
+                  >
+                    <!-- Circular background -->
+                    <circle cx="12" cy="12" r="12" fill="#1DB954" />
+                    <!-- Green background similar to Spotify -->
+
+                    <!-- SVG icon -->
+                    <path
+                      d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                      fill="black"
+                      stroke="none"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <img src="card iamges/jo tum mere ho.jpeg" alt="" />
+                </div>
+                <h2>Uplifting Songs</h2>
+                <p>Artist</p>
+              </div>
+              <div data-folder="cs" class="card">
+                <div class="play">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="44"
+                    height="64"
+                  >
+                    <!-- Circular background -->
+                    <circle cx="12" cy="12" r="12" fill="#1DB954" />
+                    <!-- Green background similar to Spotify -->
+
+                    <!-- SVG icon -->
+                    <path
+                      d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                      fill="black"
+                      stroke="none"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <img src="card iamges/funky.jpg" alt="" />
+                </div>
+                <h2>Funky Mood</h2>
+                <p>Artist</p>
+              </div>
+            </div>
+          </div>
+          <div class="albums">
+            <h1>Popular Albums</h1>
+            <div class="collection flex">
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/umaircard.jpeg" alt="" />
+                  <h2>ROCKSTAR...</h2>
+                  <p>Umair</p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/shubcard.jpeg" alt="" />
+                  <h2>Still Rollin</h2>
+                  <p>Shubh</p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/karancard.jpeg" alt="" />
+                  <h2>Making Memories</h2>
+                  <p>Karan Aujla, lkky</p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/sidhucard.jpeg" alt="" />
+                  <h2>Moosetape</h2>
+                  <p>Sidhu Moose Wala</p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/jholcard.jpeg" alt="" />
+                  <h2>Jhol</h2>
+                  <p>Maanu, Annural Khalid</p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+
+                  <img src="cards/diljitcard.jpeg" alt="" />
+                  <h2>Ghost</h2>
+                  <p>Diljit Dosanjh</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="radio">
+            <h1>Popular radio</h1>
+            <div class="collection flex">
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/arijit radio.jpeg" alt="" />
+                  <h2>Arijit Singh Radio</h2>
+                  <p>With Neha Kakkar, Pritam, KK and more</p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/shubh radio.jpeg" alt="" />
+                  <h2>Shubh Radio</h2>
+                  <p>With AP Dhillon, Gurinder Gill, Tegi Pannu and more</p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/NFAK radio.jpeg" alt="" />
+                  <h2>Nusrat Fatah Ali Khan Radio</h2>
+                  <p>
+                    With Abida Parveen, Atta Ullah Khan Esakhelvi, Wadali
+                    Brothers and more
+                  </p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/sidhu radio.jpeg" alt="" />
+                  <h2>Sidhu Moose Wala Radio</h2>
+                  <p>With Ammy Virk, Amrit Maan, Karan Aujla and more</p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/karan radio.jpeg" alt="" />
+                  <h2>Karan Aujla Radio</h2>
+                  <p>With Ammy Virk, Amrit Maan, Karan Aujla and more</p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+
+                  <img src="cards/talha radio.jpeg" alt="" />
+                  <h2>Talha Anjum Radio</h2>
+                  <p>With Talhah Yunus, Umair, Young Stunners and more</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="charts">
+            <h1>Featured Charts</h1>
+            <div class="collection flex">
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/f1.jpg" alt="" />
+                  <h2>Top Songs Global</h2>
+                  <p>
+                    Your weekly update of the most played tracks right now -
+                    Global.
+                  </p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/f2.jpg" alt="" />
+                  <h2>Top Songs USA</h2>
+                  <p>
+                    Your weekly update of the most played tracks right now -
+                    USA.
+                  </p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/f3.jpg" alt="" />
+                  <h2>Top 50-Global</h2>
+                  <p>
+                    Your daily update of the most played tracks right now -
+                    Global.
+                  </p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/f4.jpg" alt="" />
+                  <h2>Top 50-USA</h2>
+                  <p>
+                    Your daily update of the most played tracks right now - USA.
+                  </p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <img src="cards/f5.jpg" alt="" />
+                  <h2>Viral 50-Global</h2>
+                  <p>
+                    Your daily update of the most viral tracks right now -
+                    Global.
+                  </p>
+                </div>
+              </div>
+              <div class="cardcontainer">
+                <div class="card">
+                  <div class="play">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="44"
+                      height="64"
+                      fill="black"
+                    >
+                      <path
+                        d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+
+                  <img src="cards/f6.jpg" alt="" />
+                  <h2>Viral 50-USA</h2>
+                  <p>
+                    Your daily update of the most viral tracks right now - USA.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="playbar">
+            <div class="seekbar">
+              <div class="circle"></div>
+            </div>
+            <div class="abovebar">
+              <div class="songinfo"></div>
+              <div class="songbtn">
+                <img width="35" id="previous" src="presong.svg" alt="" />
+                <img width="35" id="play" src="play.svg" alt="" />
+                <img width="35" id="next" src="nextsong.svg" alt="" />
+              </div>
+              <!-- <div>
+                            <div class="songtime"></div>
+                            <div class="volume">
+                                <img src="volume.svg" alt="">
+                            </div>
+                        </div> -->
+              <div class="timevol">
+                <div class="songtime"></div>
+                <div class="volume">
+                  <img width="25" src="volume.svg" alt="" />
+                  <div class="range">
+                    <input type="range" name="volume" id="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="spotify.js"></script>
+  </body>
+</html>
